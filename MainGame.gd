@@ -4,6 +4,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+#TODO: Cards
 export(Resource) var paper_tscn
 
 var main_deck = []
