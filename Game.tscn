@@ -6,6 +6,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+basic_card = ExtResource( 1 )
 deck_rock = 1
 deck_paper = 3
 deck_scissors = 1
@@ -13,12 +14,17 @@ deck_scissors = 1
 [node name="Board" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
-[node name="PlayerCards" type="Node2D" parent="Board"]
-
 [node name="ScoreDisplay" type="Node2D" parent="."]
 
 [node name="Portrait" type="Node2D" parent="."]
 
 [node name="Counter" type="Node2D" parent="."]
 
-[node name="CardBase" parent="." instance=ExtResource( 1 )]
+[node name="PlayerCards" type="Node2D" parent="."]
+position = Vector2( 160, 160 )
+
+[node name="CPUCards" type="Node2D" parent="."]
+position = Vector2( 160, 40 )
+
+[node name="StartCards" type="Node2D" parent="."]
+position = Vector2( 160, 100 )
