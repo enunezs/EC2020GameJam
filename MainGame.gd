@@ -8,8 +8,13 @@ extends Node2D
 #TODO: Cards
 export(Resource) var paper_tscn
 
-var main_deck = []
+# DECK PROPERTIES
+export(int) var deck_rock
+export(int) var deck_paper
+export(int) var deck_scissors
 
+
+var main_deck = []
 var player_deck = []
 var cpu_deck = []
 
@@ -21,17 +26,21 @@ enum {WIN=1, LOSE=2, DRAW=3}
 func _ready():
 	
 	randomize()
-	var deck = generate_deck(4,2,2)
-	print(main_deck)
-	split_into_decks()
-	print(player_deck)
-	print(cpu_deck)
 
-	
-	
+	print(battle_cards(ROCK,ROCK))
+
+	start_game()
+
 	pass # Replace with function body.
 
-# warning-ignore:unused_argument
+
+func start_game():
+
+
+
+	pass
+
+
 func generate_random_deck(size):
 	main_deck = []
 	for n in size:
@@ -50,27 +59,31 @@ func generate_deck(nrock, paper, scissors):
 	for x in scissors:
 		main_deck.append(SCISSORS)
 		
-		
-
+			
 	return main_deck
-	
-func shuffle_deck(deck):
-	return deck.shuffle()
 
+
+func shuffle_deck(deck):
+	deck.shuffle()
+
+
+# First half into player deck, second half into CPU. Clears base deck
 func split_into_decks():
 	player_deck = main_deck.slice(0,(len(main_deck)/2)-1)
 	cpu_deck = main_deck.slice(len(main_deck)/2, len(main_deck))
 	main_deck=[]
-	
-	
+		
 	pass
 
 #Returns WIN if player card wins, LOSE if cpu wins
 func battle_cards(player_card, cpu_card):
-	pass
-
-#returns number of cards 
-func count_cards(type):
+	if player_card == cpu_card:
+		return DRAW
+	if player_card-cpu_card ==1 or player_card-cpu_card ==-2:
+		return WIN 
 	
-	pass
+	return LOSE
+
+
+
 
