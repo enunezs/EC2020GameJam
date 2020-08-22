@@ -1,3 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Wacky-Races.jpg" type="Texture" id=1]
+[ext_resource path="res://MainGame.gd" type="Script" id=2]
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Wacky-Races" type="Sprite" parent="."]
+position = Vector2( 166.267, 84.8172 )
+scale = Vector2( 0.269863, 0.256171 )
+texture = ExtResource( 1 )
