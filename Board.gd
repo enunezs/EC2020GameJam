@@ -2,7 +2,7 @@ extends Node2D
 
 onready var n_parent = get_parent()
 
-const MySmokeResource = preload("res://paper.tscn")
+#const MySmokeResource = preload("res://paper.tscn")
 
 func draw_decks(card_list):
 
