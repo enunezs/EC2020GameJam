@@ -4,6 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export(Resource) var paper_tscn
 
 var main_deck = []
 
@@ -49,5 +50,8 @@ func split_into_decks():
 func battle_cards(player_card, cpu_card):
 	pass
 
-
+#returns number of cards 
+func count_cards(type):
+	
+	pass
 
