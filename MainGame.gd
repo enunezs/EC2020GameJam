@@ -20,8 +20,6 @@ enum Result {WIN=1, LOSE=2, DRAW=3}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	randomize()
-	print(generate_deck(1,2,3))
 
 	pass # Replace with function body.
 

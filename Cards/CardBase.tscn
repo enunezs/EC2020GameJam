@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Cards/Sprites/Card_01-1.png.png" type="Texture" id=1]
+[ext_resource path="res://Cards/Sprites/Card_Rock-1.png.png" type="Texture" id=1]
 [ext_resource path="res://Cards/CardBase.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
