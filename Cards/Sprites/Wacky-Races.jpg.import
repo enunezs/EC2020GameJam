@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wacky-Races.jpg-59cc15125286442d957a01cafb7d3983.stex"
+path="res://.import/Wacky-Races.jpg-776f22bb4ce7ac78947b09604cc78ed9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Wacky-Races.jpg"
-dest_files=[ "res://.import/Wacky-Races.jpg-59cc15125286442d957a01cafb7d3983.stex" ]
+source_file="res://Cards/Sprites/Wacky-Races.jpg"
+dest_files=[ "res://.import/Wacky-Races.jpg-776f22bb4ce7ac78947b09604cc78ed9.stex" ]
 
 [params]
 

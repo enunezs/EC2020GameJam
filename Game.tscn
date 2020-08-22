@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Wacky-Races.jpg" type="Texture" id=1]
+[ext_resource path="res://Cards/Sprites/Wacky-Races.jpg" type="Texture" id=1]
 [ext_resource path="res://MainGame.gd" type="Script" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
 
