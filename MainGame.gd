@@ -19,9 +19,13 @@ enum {WIN=1, LOSE=2, DRAW=3}
 func _ready():
 	
 	randomize()
-	print(generate_deck(0,0,0))
+	var deck = generate_deck(4,2,2)
+	print(main_deck)
+	split_into_decks()
+	print(player_deck)
+	print(cpu_deck)
 	
-	print(generate_deck(15,5,0))
+	
 	
 	pass # Replace with function body.
 
@@ -31,7 +35,6 @@ func generate_random_deck(size):
 	for n in size:
 		main_deck.append(randi()%3+1)
 	return main_deck
-	pass
 	
 	
 # generates array with number of elements set as parameter
@@ -49,12 +52,14 @@ func generate_deck(nrock, paper, scissors):
 			
 	return main_deck
 
-func shuffle_deck():
-	
-	pass
+func shuffle_deck(deck):
+	return deck.shuffle()
 
 func split_into_decks():
-	
+	player_deck = main_deck.slice(0,(len(main_deck)/2)-1)
+	cpu_deck = main_deck.slice(len(main_deck)/2, len(main_deck))
+	main_deck=[]
+		
 	
 	pass
 
