@@ -12,10 +12,13 @@ var cpu_deck = []
 
 enum Item {ROCK=1, PAPER=2, SCISSORS=3}
 
+enum Result {WIN=1, LOSE=2, DRAW=3}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	randomize()
+	print(generate_deck(1,2,3))
 
 	pass # Replace with function body.
 
@@ -28,22 +31,21 @@ func generate_random_deck(size):
 	pass
 	
 	
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
+# generates array with number of elements set as parameter
+# Example: (2 rocks, 3 papers, o scissors) results in [1 ,1, 2, 2, 2]
 func generate_deck(rock, paper, scissors):
 	pass
 
-func shuffel_deck():
+func shuffle_deck():
 	
 	pass
 
 func split_into_decks():
 	
+	
 	pass
 
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
+#Returns WIN if player card wins, LOSE if cpu wins
 func battle_cards(player_card, cpu_card):
 	pass
 
