@@ -6,6 +6,9 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+deck_rock = 1
+deck_paper = 3
+deck_scissors = 1
 
 [node name="Board" type="Node2D" parent="."]
 script = ExtResource( 3 )

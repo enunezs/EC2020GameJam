@@ -8,8 +8,13 @@ extends Node2D
 #TODO: Cards
 export(Resource) var paper_tscn
 
-var main_deck = []
+# DECK PROPERTIES
+export(int) var deck_rock
+export(int) var deck_paper
+export(int) var deck_scissors
 
+
+var main_deck = []
 var player_deck = []
 var cpu_deck = []
 
@@ -24,7 +29,16 @@ func _ready():
 
 	print(battle_cards(ROCK,ROCK))
 
+	start_game()
+
 	pass # Replace with function body.
+
+
+func start_game():
+
+
+
+	pass
 
 
 func generate_random_deck(size):
