@@ -28,6 +28,7 @@ scale = Vector2( 0.204241, 0.204241 )
 texture = ExtResource( 6 )
 
 [node name="Background_01-1png" type="Sprite" parent="."]
+visible = false
 position = Vector2( 160, 100 )
 z_index = -2
 texture = ExtResource( 7 )
@@ -42,13 +43,13 @@ script = ExtResource( 3 )
 [node name="Counter" type="Node2D" parent="."]
 
 [node name="PlayerCards" type="Node2D" parent="."]
-position = Vector2( 179.223, 206.421 )
+position = Vector2( 179.223, 169.34 )
 
 [node name="PlayerActiveCard" type="Node2D" parent="."]
 position = Vector2( 192.929, 96.4645 )
 
 [node name="CPUCards" type="Node2D" parent="."]
-position = Vector2( 177.694, -10.6586 )
+position = Vector2( 177.694, 29.601 )
 
 [node name="CPUActiveCard" type="Node2D" parent="."]
 position = Vector2( 128.132, 95.0503 )
