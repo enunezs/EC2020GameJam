@@ -33,7 +33,7 @@ position = Vector2( 160, 170 )
 position = Vector2( 200, 100 )
 
 [node name="CPUCards" type="Node2D" parent="."]
-position = Vector2( 161.888, -55.8926 )
+position = Vector2( 160, 30 )
 
 [node name="CPUActiveCard" type="Node2D" parent="."]
 position = Vector2( 120, 100 )
@@ -45,6 +45,7 @@ position = Vector2( 160, 100 )
 position = Vector2( 260, 100 )
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = -1
 script = ExtResource( 5 )
 
 [node name="ScoreBox" type="MarginContainer" parent="UI"]

@@ -107,6 +107,9 @@ func game_setup():
 	player_score = 0
 
 	n_ui_canvas.clear_score()
+
+	for card in player_deck:
+		card.clickable = true
 	#return 
 	#start_anim()
 	print("Setup done")
@@ -140,7 +143,9 @@ func play_game():
 	else:
 		#Fight
 		cpu_card.face_up()
-		
+		yield(get_tree().create_timer(1), "timeout")
+
+
 		var result = battle_cards(player_card, cpu_card)
 		
 			
@@ -165,7 +170,8 @@ func play_game():
 		#TODO update score
 		n_ui_canvas.update_score(player_score, cpu_score)
 
-
+		for card in player_deck:
+			card.clickable = true
 		
 		
 
@@ -228,14 +234,14 @@ func Player_pick(card):
 func card_click(card):
 
 	if not is_playing:
-		return
+		return false
 	
 
 
 	if card in player_deck:
 		#select card
 		Player_pick(card)
-		pass
+		return true
 	
 	
 
@@ -402,7 +408,8 @@ func discard_card(card):
 	#add to discard pile and move
 
 	discard_pile.append(card)
-	card.move_to(n_discard_pile.position)
-	#card.float_to(n_discard_pile.position)
+	#card.move_to(n_discard_pile.position)
+	card.float_to(n_discard_pile.position)
+	card.z_index=len(discard_pile)
 
 	pass
