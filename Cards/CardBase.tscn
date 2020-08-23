@@ -232,6 +232,8 @@ shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="ScaleTween" type="Tween" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flip = SubResource( 2 )
 anims/FloatDown = SubResource( 4 )
