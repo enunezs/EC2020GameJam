@@ -170,6 +170,7 @@ func arrange_cards():
 	start = n_cpu_cards.position
 	start.x = start.x - length/2
 
+	yield(get_tree().create_timer(1.0), "timeout")
 	for n_card in len(cpu_deck):
 		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
 		print(pos)
