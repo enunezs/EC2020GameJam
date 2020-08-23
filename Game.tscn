@@ -21,13 +21,15 @@ deck_paper = 2
 deck_scissors = 2
 
 [node name="Image" type="Sprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.34902 )
 position = Vector2( 159.248, 98.7973 )
 scale = Vector2( 0.204241, 0.204241 )
 texture = ExtResource( 6 )
 
 [node name="Background_01-1png" type="Sprite" parent="."]
-position = Vector2( 160.008, 100.011 )
+position = Vector2( 160, 100 )
+z_index = -2
 texture = ExtResource( 7 )
 
 [node name="Board" type="Node2D" parent="."]
