@@ -126,15 +126,25 @@ func flip_texture():
 
 func _on_CardBase_mouse_entered():
 	if clickable:
-		$AnimationPlayer.play("Hover")
+		#$AnimationPlayer.play("Hover")
+		var tween = get_node("ScaleTween")
+		tween.interpolate_property(self, "scale", scale, Vector2(1.2,1.2), 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		tween.start()
+	
+		#yield(tween, "tween_completed")
 	pass # Replace with function body.
 
 
 func _on_CardBase_mouse_exited():
-	if clickable:
-		$AnimationPlayer.play("Un-hover")
-	else:
-		$Sprite.scale = Vector2(1,1)
-		$Sprite.position = Vector2(0,0) 
+	
+	var tween = get_node("ScaleTween")
+	tween.interpolate_property(self, "scale", scale, Vector2(1,1), 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	#if clickable:
+	
+	#$AnimationPlayer.play("Un-hover")
+	#else:
+	#	$Sprite.scale = Vector2(1,1)
+	#	$Sprite.position = Vector2(0,0) 
 
 	pass # Replace with function body.
