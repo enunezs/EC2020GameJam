@@ -24,6 +24,8 @@ onready var n_cpu_active_card = $CPUActiveCard
 onready var n_start_cards = $StartCards
 onready var n_discard_pile = $DiscardCards
 
+onready var n_ui_canvas = $UI
+
 
 
 var main_deck = []
@@ -39,6 +41,9 @@ enum {UP, DOWN}
 var cpu_card
 var player_card
 var is_playing =false
+
+var cpu_score = 0
+var player_score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,6 +82,11 @@ func game_setup():
 	cpu_card = null
 	player_card = null
 
+
+	cpu_score = 0
+	player_score = 0
+
+	n_ui_canvas.clear_score()
 	#return 
 
 #runs start animations and setup
@@ -105,21 +115,22 @@ func play_game():
 			discard_card(cpu_card)
 			yield(player_card.move_to(n_start_cards.position),"completed")
 			discard_card(player_card)
+			player_score = player_score + 1 
 			#TODO: Sound?
 		if result == LOSE:
 			discard_card(player_card)
 			yield(cpu_card.move_to(n_start_cards.position),"completed")
-			
 			discard_card(cpu_card)
+			cpu_score = cpu_score + 1
 			#TODO: Sound?
 		if result == DRAW:
 			yield(get_tree().create_timer(1), "timeout")
 			discard_card(player_card)
 			discard_card(cpu_card)
 
+		#TODO update score
+		n_ui_canvas.update_score(player_score, cpu_score)
 
-		
-		#TODO: Update scores
 
 		
 		
