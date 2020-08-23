@@ -16,7 +16,11 @@ export(int) var deck_scissors
 # coordinates / nodes for cards
 
 onready var n_player_cards = $PlayerCards
+onready var n_player_active_card = $PlayerActiveCard
+
 onready var n_cpu_cards = $CPUCards
+onready var n_cpu_active_card = $CPUActiveCard
+
 onready var n_start_cards = $StartCards
 
 
@@ -76,6 +80,8 @@ func game_setup():
 
 	#flip CPU cards
 	flip_cards(cpu_deck, DOWN)
+	is_playing = true
+
 	
 	
 	#TODO: CPU picks card 
@@ -101,8 +107,7 @@ func play_game():
 	#CPU pick
 	cpu_card = CPU_pick()
 	#Move card to center
-	cpu_card.move_to(n_start_cards.position)
-
+	
 
 
 func CPU_pick():
@@ -110,8 +115,33 @@ func CPU_pick():
 	var index = randi() % cpu_deck.size()
 	var card = cpu_deck[index]
 	cpu_deck.remove(index)
+	card.move_to(n_cpu_active_card.position)
 
 	return card
+
+
+func Player_pick(card):
+	player_deck.erase(card)
+	player_card = card
+	card.move_to(n_player_active_card.position)
+
+	battle_cards(player_card, cpu_card)
+
+
+
+func card_click(card):
+
+	if not is_playing:
+		return
+	
+
+
+	if card in player_deck:
+		#select card
+		Player_pick(card)
+		pass
+
+
 
 
 func generate_random_deck(size):
@@ -180,9 +210,14 @@ func split_into_decks():
 
 #Returns WIN if player card wins, LOSE if cpu wins
 func battle_cards(player_card, cpu_card):
-	if player_card == cpu_card:
+	
+	var p_type = player_card.card_type
+	var cpu_type = cpu_card.card_type
+
+
+	if p_type == cpu_type:
 		return DRAW
-	if player_card-cpu_card ==1 or player_card-cpu_card ==-2:
+	if p_type-cpu_type ==1 or p_type-cpu_type ==-2:
 		return WIN 
 	
 	return LOSE

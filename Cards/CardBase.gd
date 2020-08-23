@@ -54,12 +54,20 @@ func _input_event(viewport, event, shape_idx):
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
 		self.on_click()
+	else:
+		self.on_hover()
 
 
 func on_click():
 	#tell parent
-	print("CLICK")
+	#print("CLICK")
+	get_parent().card_click(self)
+
+func on_hover():
+	#tell parent
+	#print("HOVER")
 	pass
+
 
 
 func move_to(target):
