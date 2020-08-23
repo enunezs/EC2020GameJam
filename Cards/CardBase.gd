@@ -73,9 +73,7 @@ func on_hover():
 func move_to(target):
 	var tween = get_node("Tween")
 	tween.interpolate_property(self, "position", position, target, 2, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
-	print("position")
-	print(position)
-	print(target)
+	
 	tween.start()
 	
 	yield(tween, "tween_completed")

@@ -34,3 +34,6 @@ position = Vector2( 120, 100 )
 
 [node name="StartCards" type="Node2D" parent="."]
 position = Vector2( 160, 100 )
+
+[node name="DiscardCards" type="Node2D" parent="."]
+position = Vector2( 260, 100 )

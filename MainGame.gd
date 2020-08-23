@@ -22,14 +22,14 @@ onready var n_cpu_cards = $CPUCards
 onready var n_cpu_active_card = $CPUActiveCard
 
 onready var n_start_cards = $StartCards
+onready var n_discard_pile = $DiscardCards
 
 
 
 var main_deck = []
 var player_deck = []
 var cpu_deck = []
-
-var discard_pile
+var discard_pile = []
 
 enum {ROCK=1, PAPER=2, SCISSORS=3}
 enum {WIN=1, LOSE=2, DRAW=3}
@@ -50,14 +50,17 @@ func _ready():
 	#Start new game
 	#game_setup()
 	
-	yield(game_setup(), "completed")
+	game_setup()
 
-	yield(get_tree().create_timer(2.0), "timeout")
+	#yield(get_tree().create_timer(2.0), "timeout")
 
-	is_playing = true
 	play_game()
 	
+###########################
+### CORE GAME FUNCTIONS ###
+###########################
 
+#setups all variables
 func game_setup():
 
 	is_playing = false
@@ -66,66 +69,114 @@ func game_setup():
 	
 	shuffle_deck(main_deck)
 	split_into_decks()
-	print("Start deck: ")
-	print(main_deck)
+	discard_pile = []
+	
+	#print("Start deck: ")
+	#print(main_deck)
+
+	cpu_card = null
+	player_card = null
+
+	#return 
+
+#runs start animations and setup
+func play_game():
+
+	is_playing = false
+
+	yield(arrange_cards(),"completed")
 
 
+	if (player_card == null ):
+		#setup board / first play
+		# TODO start_anim()
+		
+		#flip_cards(cpu_deck, DOWN)
+
+		pass
+
+	else:
+		#Fight
+		var result = battle_cards(player_card, cpu_card)
+		
+			
+		#Discard cards
+		if result == WIN:
+			discard_card(cpu_card)
+			yield(player_card.move_to(n_start_cards.position),"completed")
+			discard_card(player_card)
+			#TODO: Sound?
+		if result == LOSE:
+			discard_card(player_card)
+			yield(cpu_card.move_to(n_start_cards.position),"completed")
+			
+			discard_card(cpu_card)
+			#TODO: Sound?
+		if result == DRAW:
+			yield(get_tree().create_timer(1), "timeout")
+			discard_card(player_card)
+			discard_card(cpu_card)
+
+
+		
+		#TODO: Update scores
+
+		
+		
+
+		pass
 	#Arrange cards
 
 	#TODO: CARDS ON START PILE
 
-	arrange_cards() #NICE
+	#Move cards to players hands
+	#arrange_cards() #NICE
 
-	yield(get_tree().create_timer(5.0), "timeout")
+	#yield(get_tree().create_timer(5.0), "timeout")
 
 	#flip CPU cards
-	flip_cards(cpu_deck, DOWN)
-	is_playing = true
 
-	
-	
-	#TODO: CPU picks card 
+
+
 	#Start the game proper
 
-
-	#for loop?
-
-	return
-
-func play_game():
 	
-	#check result
+	is_playing = true
+
+	#First CPU pick
+	#CPU picks card (and moves to center)
+
+	if len(cpu_deck)>0:
+		CPU_pick()
+	else:
+		#game_over()
+		pass
 
 
-	#update screens
-
-
-	# if still playing cpu makes next move
-
-	#while(len(player_deck)>0):
-
-	#CPU pick
-	cpu_card = CPU_pick()
-	#Move card to center
+	#From this point, event driven
+	#Wait for user input, compare cards, update scores, CPU pick, repeat
 	
 
 
 func CPU_pick():
 	#Just pick at random
 	var index = randi() % cpu_deck.size()
-	var card = cpu_deck[index]
+	cpu_card = cpu_deck[index]
 	cpu_deck.remove(index)
-	card.move_to(n_cpu_active_card.position)
+	 
+	
+	yield(cpu_card.move_to(n_cpu_active_card.position),"completed")
+	cpu_card.face_up()
 
-	return card
 
 
 func Player_pick(card):
+	if not is_playing:
+		return
 	player_deck.erase(card)
 	player_card = card
 	card.move_to(n_player_active_card.position)
-
-	battle_cards(player_card, cpu_card)
+	play_game()
 
 
 
@@ -140,8 +191,13 @@ func card_click(card):
 		#select card
 		Player_pick(card)
 		pass
+	
+	
 
 
+######################
+### CARD FUNCTIONS ###
+######################
 
 
 func generate_random_deck(size):
@@ -216,14 +272,21 @@ func battle_cards(player_card, cpu_card):
 
 
 	if p_type == cpu_type:
+		print("DRAW")
 		return DRAW
-	if p_type-cpu_type ==1 or p_type-cpu_type ==-2:
-		return WIN 
 	
+	if p_type-cpu_type ==1 or p_type-cpu_type ==-2:
+		print("WIN")
+		return WIN
+		
+	
+	print("LOSE")
 	return LOSE
 
 
-
+#####################################
+### CARD ANIMATIONS & ARRANGEMENT ###
+#####################################
 
 func arrange_cards():
 
@@ -237,7 +300,7 @@ func arrange_cards():
 	start.x = start.x - length/2
 
 
-
+	#player deck on bottom
 	for n_card in len(player_deck):
 		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -247,13 +310,18 @@ func arrange_cards():
 	start = n_cpu_cards.position
 	start.x = start.x - length/2
 
-	yield(get_tree().create_timer(1.0), "timeout")
+	#rival deck on top
+	#yield(get_tree().create_timer(1.0), "timeout")
 	for n_card in len(cpu_deck):
 		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
 		yield(get_tree().create_timer(0.1), "timeout")
 		cpu_deck[n_card].move_to(pos)
+	
+	yield(get_tree().create_timer(1.0), "timeout")
 
-	pass
+	#Discard pile on right
+
+
 
 
 func flip_cards(deck ,dir):
@@ -263,6 +331,15 @@ func flip_cards(deck ,dir):
 			n_card.face_up()
 		if dir == DOWN:
 			n_card.face_down()
-		yield(get_tree().create_timer(0.2), "timeout")
+		yield(get_tree().create_timer(0.15), "timeout")
 
 
+func discard_card(card):
+
+	#add to discard pile and move
+
+	discard_pile.append(card)
+	card.move_to(n_discard_pile.position)
+	#card.float_to(n_discard_pile.position)
+
+	pass
