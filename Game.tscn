@@ -51,6 +51,9 @@ position = Vector2( 192.929, 96.4645 )
 [node name="CPUCards" type="Node2D" parent="."]
 position = Vector2( 177.694, 29.601 )
 
+[node name="CPUCards2" type="Node2D" parent="."]
+position = Vector2( 177.694, 29.601 )
+
 [node name="CPUActiveCard" type="Node2D" parent="."]
 position = Vector2( 128.132, 95.0503 )
 
