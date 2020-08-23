@@ -1,11 +1,7 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-#TODO: Cards
 export(Resource) var basic_card
 
 # DECK PROPERTIES
@@ -75,9 +71,16 @@ func game_setup():
 	#yield(set_deck_position(main_deck,n_start_cards),"completed")
 	yield(get_tree().create_timer(1), "timeout")
 
+
+	#TODO: Appear from out of screen FACEDOWN
+
 	#Display the deck
 	yield(display_deck(),"completed")
 	yield(get_tree().create_timer(1), "timeout")
+
+	#TODO: Update counter!
+	n_ui_canvas.update_counter(count_cards())
+
 
 	#Flip the cards
 	yield(flip_cards(main_deck ,DOWN), "completed")
@@ -107,6 +110,9 @@ func game_setup():
 	player_score = 0
 
 	n_ui_canvas.clear_score()
+
+	for card in player_deck:
+		card.clickable = true
 	#return 
 	#start_anim()
 	print("Setup done")
@@ -131,16 +137,15 @@ func play_game():
 
 	if (player_card == null ):
 		#setup board / first play
-		# TODO start_anim()
-		
-		#flip_cards(cpu_deck, DOWN)
 
 		pass
 
 	else:
 		#Fight
 		cpu_card.face_up()
-		
+		yield(get_tree().create_timer(1), "timeout")
+
+
 		var result = battle_cards(player_card, cpu_card)
 		
 			
@@ -162,30 +167,17 @@ func play_game():
 			discard_card(player_card)
 			discard_card(cpu_card)
 
-		#TODO update score
+		#update score
 		n_ui_canvas.update_score(player_score, cpu_score)
 
-
+		for card in player_deck:
+			card.clickable = true
 		
 		
 
 		pass
-	#Arrange cards
-
-	#TODO: CARDS ON START PILE
-
-	#Move cards to players hands
-	#arrange_cards() #NICE
-
-	#yield(get_tree().create_timer(5.0), "timeout")
-
-	#flip CPU cards
-
-
 
 	#Start the game proper
-
-	
 	is_playing = true
 
 	#First CPU pick
@@ -198,7 +190,7 @@ func play_game():
 		pass
 
 
-	#From this point, event driven
+	#From this point on, the whole system is event driven
 	#Wait for user input, compare cards, update scores, CPU pick, repeat
 	
 
@@ -228,14 +220,14 @@ func Player_pick(card):
 func card_click(card):
 
 	if not is_playing:
-		return
+		return false
 	
 
 
 	if card in player_deck:
 		#select card
 		Player_pick(card)
-		pass
+		return true
 	
 	
 
@@ -295,6 +287,7 @@ func new_card(type):
 	var current_instance = basic_card.instance()
 	add_child(current_instance)
 	current_instance.set_cardtype(type)
+	current_instance.position = n_start_cards.position
 	return current_instance
 
 func shuffle_deck(deck):
@@ -328,6 +321,14 @@ func battle_cards(player_card, cpu_card):
 	print("LOSE")
 	return LOSE
 
+
+#returns list!
+func count_cards():
+	var amount = [0,0,0]
+	for card in main_deck:
+		amount[card.card_type-1] = 1 + amount[card.card_type-1]
+
+	return amount
 
 #####################################
 ### CARD ANIMATIONS & ARRANGEMENT ###
@@ -402,7 +403,8 @@ func discard_card(card):
 	#add to discard pile and move
 
 	discard_pile.append(card)
-	card.move_to(n_discard_pile.position)
-	#card.float_to(n_discard_pile.position)
+	#card.move_to(n_discard_pile.position)
+	card.float_to(n_discard_pile.position)
+	card.z_index=len(discard_pile)
 
 	pass
