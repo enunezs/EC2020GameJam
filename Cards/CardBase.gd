@@ -7,10 +7,13 @@ var index
 enum NamedEnum {ROCK = 1, PAPER =2, SCISSORS = 3}
 export(NamedEnum) var card_type = 1
 
+export(Texture) onready var back_texture
 
 export(Texture) onready var rock_texture
 export(Texture) onready var paper_texture
 export(Texture) onready var scissors_texture
+
+var facing_up = true #Showing type by default
 
 #onready var rock_texture
 #onready var paper_texture
@@ -66,12 +69,29 @@ func move_to(target):
 	print(position)
 	print(target)
 	tween.start()
+	
+	yield(tween, "tween_completed")
 	#position=target
 
-func flip_card():
+
+func face_up():
+	facing_up = true
+	$AnimationPlayer.play("Flip")
+	#flip_texture()
 
 	pass
 
+func face_down():
+	facing_up = false
+	$AnimationPlayer.play("Flip")
+	#flip_texture()
+
+func flip_texture():
+	if facing_up:
+		set_cardtype(card_type)
+	else:
+		n_sprite.set_texture(back_texture)		
+	pass
 
 #TODO ON HOVER
 

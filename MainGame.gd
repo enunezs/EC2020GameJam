@@ -28,8 +28,13 @@ var cpu_deck = []
 var discard_pile
 
 enum {ROCK=1, PAPER=2, SCISSORS=3}
-
 enum {WIN=1, LOSE=2, DRAW=3}
+enum {PLAYER=1, CPU=2}
+enum {UP, DOWN}
+
+var cpu_card
+var player_card
+var is_playing =false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,14 +44,19 @@ func _ready():
 	basic_card = load("res://Cards/CardBase.tscn")
 
 	#Start new game
-	start_game()
+	#game_setup()
+	
+	yield(game_setup(), "completed")
 
-	pass # Replace with function body.
+	yield(get_tree().create_timer(2.0), "timeout")
 
+	is_playing = true
+	play_game()
+	
 
-func start_game():
+func game_setup():
 
-
+	is_playing = false
 	#Generate cards from intial settings and split
 	generate_deck(deck_rock, deck_paper, deck_scissors)
 	
@@ -56,20 +66,52 @@ func start_game():
 	print(main_deck)
 
 
-	print("Player deck: ")
-	print(player_deck)
-
-	print("CPU deck: ")
-	print(cpu_deck)
-
-
 	#Arrange cards
 
 	#TODO: CARDS ON START PILE
 
-	arrange_cards()
+	arrange_cards() #NICE
 
-	pass
+	yield(get_tree().create_timer(5.0), "timeout")
+
+	#flip CPU cards
+	flip_cards(cpu_deck, DOWN)
+	
+	
+	#TODO: CPU picks card 
+	#Start the game proper
+
+
+	#for loop?
+
+	return
+
+func play_game():
+	
+	#check result
+
+
+	#update screens
+
+
+	# if still playing cpu makes next move
+
+	#while(len(player_deck)>0):
+
+	#CPU pick
+	cpu_card = CPU_pick()
+	#Move card to center
+	cpu_card.move_to(n_start_cards.position)
+
+
+
+func CPU_pick():
+	#Just pick at random
+	var index = randi() % cpu_deck.size()
+	var card = cpu_deck[index]
+	cpu_deck.remove(index)
+
+	return card
 
 
 func generate_random_deck(size):
@@ -163,7 +205,7 @@ func arrange_cards():
 
 	for n_card in len(player_deck):
 		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
-		print(pos)
+		yield(get_tree().create_timer(0.1), "timeout")
 		player_deck[n_card].move_to(pos)
 
 	length = (len(cpu_deck)-1)*(spacing+card_length)
@@ -173,10 +215,19 @@ func arrange_cards():
 	yield(get_tree().create_timer(1.0), "timeout")
 	for n_card in len(cpu_deck):
 		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
-		print(pos)
+		yield(get_tree().create_timer(0.1), "timeout")
 		cpu_deck[n_card].move_to(pos)
 
-
-
 	pass
+
+
+func flip_cards(deck ,dir):
+
+	for n_card in deck:
+		if dir == UP:
+			n_card.face_up()
+		if dir == DOWN:
+			n_card.face_down()
+		yield(get_tree().create_timer(0.2), "timeout")
+
 
