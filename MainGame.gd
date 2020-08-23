@@ -69,11 +69,31 @@ func _ready():
 func game_setup():
 
 	is_playing = false
-	#Generate cards from intial settings and split
+
+	#Build deck from intial settings and show at center
 	generate_deck(deck_rock, deck_paper, deck_scissors)
-	
+	#yield(set_deck_position(main_deck,n_start_cards),"completed")
+	yield(get_tree().create_timer(1), "timeout")
+
+	#Display the deck
+	yield(display_deck(),"completed")
+	yield(get_tree().create_timer(1), "timeout")
+
+	#Flip the cards
+	yield(flip_cards(main_deck ,DOWN), "completed")
+
+	#Cards back to center ("shuffle")
+	#yield(set_deck_position(main_deck,n_start_cards),"completed")
+	#Shuffle deck and give cards
 	shuffle_deck(main_deck)
 	split_into_decks()
+
+	#Arrange
+	yield(arrange_cards(),"completed")
+	yield(flip_cards(player_deck ,UP), "completed")
+
+
+	
 	discard_pile = []
 	
 	#print("Start deck: ")
@@ -88,8 +108,20 @@ func game_setup():
 
 	n_ui_canvas.clear_score()
 	#return 
+	#start_anim()
+	print("Setup done")
+
+	CPU_pick()
 
 #runs start animations and setup
+
+func start_anim():
+	pass
+	
+
+
+
+
 func play_game():
 
 	is_playing = false
@@ -107,6 +139,8 @@ func play_game():
 
 	else:
 		#Fight
+		cpu_card.face_up()
+		
 		var result = battle_cards(player_card, cpu_card)
 		
 			
@@ -177,7 +211,7 @@ func CPU_pick():
 	 
 	
 	yield(cpu_card.move_to(n_cpu_active_card.position),"completed")
-	cpu_card.face_up()
+	#cpu_card.face_up()
 
 
 
@@ -299,12 +333,30 @@ func battle_cards(player_card, cpu_card):
 ### CARD ANIMATIONS & ARRANGEMENT ###
 #####################################
 
+func display_deck():
+
+	var spacing = 8
+	var card_length = 48/2
+
+	var length = (len(main_deck)-1)*(spacing+card_length)
+	var start = n_start_cards.position
+	start.x = start.x - length/2
+
+	#player deck on bottom
+	for n_card in len(main_deck):
+		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
+		yield(get_tree().create_timer(0.1), "timeout")
+		main_deck[n_card].move_to(pos)
+	
+	yield(get_tree().create_timer(1.0), "timeout")
+
+
 func arrange_cards():
 
 #arrange along a line centered at node player_cards
 	#n_player_cards
-	var spacing = 16
-	var card_length = 64
+	var spacing = 8
+	var card_length = 48
 
 	var length = (len(player_deck)-1)*(spacing+card_length)
 	var start = n_player_cards.position

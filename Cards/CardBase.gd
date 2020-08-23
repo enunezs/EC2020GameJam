@@ -85,12 +85,13 @@ func face_up():
 	$AnimationPlayer.play("Flip")
 	#flip_texture()
 
-	pass
+	return
 
 func face_down():
 	facing_up = false
 	$AnimationPlayer.play("Flip")
 	#flip_texture()
+	return
 
 func flip_texture():
 	if facing_up:

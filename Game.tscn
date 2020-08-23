@@ -13,9 +13,9 @@ font_data = ExtResource( 4 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 basic_card = ExtResource( 1 )
-deck_rock = 1
-deck_paper = 3
-deck_scissors = 1
+deck_rock = 4
+deck_paper = 2
+deck_scissors = 2
 
 [node name="Board" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -33,7 +33,7 @@ position = Vector2( 160, 170 )
 position = Vector2( 200, 100 )
 
 [node name="CPUCards" type="Node2D" parent="."]
-position = Vector2( 160, 30 )
+position = Vector2( 161.888, -55.8926 )
 
 [node name="CPUActiveCard" type="Node2D" parent="."]
 position = Vector2( 120, 100 )
@@ -65,15 +65,13 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ScoreBox"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 92.0
-margin_bottom = 39.0
+margin_right = 68.0
+margin_bottom = 34.0
 alignment = 1
 
 [node name="Score" type="Label" parent="UI/ScoreBox/HBoxContainer"]
-margin_left = 12.0
-margin_top = 2.0
-margin_right = 60.0
-margin_bottom = 16.0
+margin_right = 48.0
+margin_bottom = 14.0
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "10000000"
