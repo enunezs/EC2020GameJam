@@ -180,13 +180,16 @@ func play_game():
 	if len(cpu_deck)>0:
 		CPU_pick()
 	else:
-		#game_over()
+		game_over()
 		pass
 
 
 	#From this point on, the whole system is event driven
 	#Wait for user input, compare cards, update scores, CPU pick, repeat
 	
+func game_over():
+	pass
+
 
 
 func CPU_pick():
