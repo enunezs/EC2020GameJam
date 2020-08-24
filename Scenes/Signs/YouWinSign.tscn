@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Signs/MessageBox.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 18
+size = 13
 extra_spacing_top = -4
 extra_spacing_space = -1
 font_data = ExtResource( 2 )
@@ -43,7 +43,8 @@ margin_right = 140.0
 margin_bottom = 61.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "you win!"
+text = "You did it, my boy! 
+you win!"
 align = 1
 valign = 1
 autowrap = true
