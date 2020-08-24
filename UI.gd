@@ -22,9 +22,9 @@ func clear_score():
 
 #TODO ANIMATE going up!
 func update_counter(n_list):
-	n_rock_text.text = "x" + str(n_list[0])
-	n_paper_text.text = "x" + str(n_list[1])
-	n_scissors_text.text = "x" + str(n_list[2])
+	n_rock_text.text = " x " + str(n_list[0])
+	n_paper_text.text = " x " + str(n_list[1])
+	n_scissors_text.text = " x " + str(n_list[2])
 
 func clear_counter():
 	n_rock_text.text = ""
