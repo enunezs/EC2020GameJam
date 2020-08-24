@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card_Made by-1.png.png-6a9d025eb087d92510af090addf28604.stex"
+path="res://.import/Dialogue box_next-1.png.png-5381a032ab527e705ce65ae28ac3fc6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/Card_Made by-1.png.png"
-dest_files=[ "res://.import/Card_Made by-1.png.png-6a9d025eb087d92510af090addf28604.stex" ]
+source_file="res://Background/Dialogue box_next-1.png.png"
+dest_files=[ "res://.import/Dialogue box_next-1.png.png-5381a032ab527e705ce65ae28ac3fc6e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
