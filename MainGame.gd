@@ -60,6 +60,10 @@ export(String, FILE) onready var next_scene
 
 
 # Called when the node enters the scene tree for the first time.
+
+func _ready():
+	$MessageBox/VBoxContainer/Message.text = start_message
+
 func ready():
 	
 	#General setup, maybe move later
