@@ -71,7 +71,7 @@ func on_click():
 
 func move_to(target):
 	var tween = get_node("Tween")
-	tween.interpolate_property(self, "position", position, target, 2, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+	tween.interpolate_property(self, "position", position, target, 1.3, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 	
 	tween.start()
 	

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ICON SCISSORS-1.png.png-4dd5534a925488f5f681c0a3edff8648.stex"
+path="res://.import/ICON PUNCH-1.png.png-8d4f6ad6b8ec0dcbf08b4deb02da48c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/ICON SCISSORS-1.png.png"
-dest_files=[ "res://.import/ICON SCISSORS-1.png.png-4dd5534a925488f5f681c0a3edff8648.stex" ]
+source_file="res://UI/ICON PUNCH-1.png.png"
+dest_files=[ "res://.import/ICON PUNCH-1.png.png-8d4f6ad6b8ec0dcbf08b4deb02da48c5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
