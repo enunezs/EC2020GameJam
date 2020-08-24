@@ -21,6 +21,9 @@ var clickable = false
 #onready var paper_texture
 #onready var scissors_texture
 
+#sound 
+export(String, FILE) var sound_slide
+
 
 
 onready var n_sprite = $Sprite

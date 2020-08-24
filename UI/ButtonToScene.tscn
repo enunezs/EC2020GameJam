@@ -3,7 +3,6 @@
 [ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/ButtonLoadScene.gd" type="Script" id=2]
 
-
 [node name="ButtonPlay" type="Button"]
 margin_top = 29.0
 margin_right = 64.0
