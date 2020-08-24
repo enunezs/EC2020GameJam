@@ -16,8 +16,8 @@ font_data = ExtResource( 2 )
 [node name="YouWin" type="Node2D"]
 z_index = 20
 script = ExtResource( 6 )
-message = "Congrats!
-Ready for another one?"
+message = "You did it, my boy! 
+you win!"
 scene_file_path = "res://Scenes/MainMenu.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,8 +44,8 @@ margin_right = 140.0
 margin_bottom = 61.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "Congrats!
-Ready for another one?"
+text = "You did it, my boy! 
+you win!"
 align = 1
 valign = 1
 autowrap = true

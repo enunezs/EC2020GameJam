@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cards/CardBase.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Background/Points-1.png.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Signs/GameOverSign.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Signs/YouWinSign.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sound Effects/GCGAMEJAM 2020 MUSIC.wav" type="AudioStream" id=18]
 [ext_resource path="res://UI/Dialogue box.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/ButtonHide.gd" type="Script" id=20]
 [ext_resource path="res://UI/DIALOGUE BOX ARROW-1.png.png" type="Texture" id=21]
@@ -30,9 +31,9 @@ font_data = ExtResource( 1 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 47.3345, 28.3815 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 13 )
@@ -44,7 +45,7 @@ region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "Happy",
 "speed": 5.0
@@ -62,39 +63,38 @@ animations = [ {
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 14 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 14 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 14 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 8 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
-}, {
-"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "Talk",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 10 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
 } ]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 basic_card = ExtResource( 2 )
-deck_rock = 5
-deck_paper = 2
-deck_scissors = 3
+deck_rock = 1
+deck_paper = 1
 win_message = ExtResource( 17 )
 lose_message = ExtResource( 16 )
 next_scene = "res://Scenes/LevelSelect.tscn"
@@ -400,6 +400,9 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="MessageBox"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
 [connection signal="input_event" from="UI/PeakButton" to="UI/PeakButton" method="_on_Area2D_input_event"]
 [connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="." method="ready"]
 [connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="MessageBox" method="hide"]

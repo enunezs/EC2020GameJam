@@ -282,7 +282,7 @@ script = ExtResource( 13 )
 __meta__ = {
 "_edit_lock_": true
 }
-scene_file_path = "res://Scenes/Game.tscn"
+scene_file_path = "res://Scenes/Level1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Card_Play-1png/Area2D2"]
 shape = SubResource( 2 )
@@ -310,6 +310,7 @@ anims/Startup = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+volume_db = -20.0
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ButtonPlay" to="HBoxContainer/VBoxContainer/MenuOptions/ButtonPlay" method="_on_ButtonPlay_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/SelectPlay" to="HBoxContainer/VBoxContainer/MenuOptions/SelectPlay" method="_on_ButtonPlay_pressed"]
 [connection signal="input_event" from="Card_Play-1png/Area2D2" to="Card_Play-1png/Area2D2" method="_on_Area2D_input_event"]

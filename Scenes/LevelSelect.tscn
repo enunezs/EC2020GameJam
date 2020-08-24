@@ -1,158 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/ButtonLoadScene.gd" type="Script" id=2]
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Background/Points-1.png.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/GotoScene.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
 font_data = ExtResource( 3 )
 
-[node name="MarginContainer" type="MarginContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.1351, 8.20598 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 300.0
-margin_bottom = 180.0
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 86.0
-margin_right = 194.0
-margin_bottom = 160.0
-custom_constants/separation = 0
-alignment = 1
-
-[node name="SelectLevel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 108.0
-margin_bottom = 19.0
-custom_fonts/font = ExtResource( 1 )
-text = "Select Level"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuOptions" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 19.0
-margin_right = 108.0
-margin_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 3
-
-[node name="ButtonLv1" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-visible = false
-margin_right = 33.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-flat = true
-script = ExtResource( 2 )
-
-[node name="TextPlay" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -9.5
-margin_right = 32.0
-margin_bottom = 9.5
-custom_fonts/font = ExtResource( 1 )
-text = "1"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonLv2" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-visible = false
-margin_right = 33.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-flat = true
-script = ExtResource( 2 )
-
-[node name="TextPlay" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -9.5
-margin_right = 32.0
-margin_bottom = 9.5
-custom_fonts/font = ExtResource( 1 )
-text = "2"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonLv3" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-visible = false
-margin_right = 33.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-flat = true
-script = ExtResource( 2 )
-
-[node name="TextPlay" type="Label" parent="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -9.5
-margin_right = 32.0
-margin_bottom = 9.5
-custom_fonts/font = ExtResource( 1 )
-text = "3"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonReturn" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 140.0
-margin_right = 108.0
-margin_bottom = 160.0
-flat = true
-script = ExtResource( 2 )
-scene_file_path = "res://Scenes/MainMenu.tscn"
-
-[node name="TextPlay" type="Label" parent="HBoxContainer/VBoxContainer/ButtonReturn"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -9.5
-margin_right = 32.0
-margin_bottom = 9.5
-custom_fonts/font = ExtResource( 1 )
-text = "Return"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" type="Node2D"]
 
 [node name="Points-1png" type="Sprite" parent="."]
-position = Vector2( 74.2682, 101.646 )
+position = Vector2( 74.2682, 70 )
 scale = Vector2( 3, 3 )
+z_index = 5
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png"]
@@ -168,9 +33,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Area2D" type="Area2D" parent="Points-1png"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png/Area2D"]
+shape = SubResource( 2 )
+
 [node name="Points-1png2" type="Sprite" parent="."]
-position = Vector2( 159.55, 101.646 )
+position = Vector2( 159.55, 70 )
 scale = Vector2( 3, 3 )
+z_index = 5
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png2"]
@@ -186,9 +59,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Area2D2" type="Area2D" parent="Points-1png2"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png2/Area2D2"]
+shape = SubResource( 2 )
+
 [node name="Points-1png3" type="Sprite" parent="."]
-position = Vector2( 246.524, 101.646 )
+position = Vector2( 246.524, 70 )
 scale = Vector2( 3, 3 )
+z_index = 5
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png3"]
@@ -203,7 +84,230 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv1" to="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv1" method="_on_ButtonPlay_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv2" to="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv2" method="_on_ButtonPlay_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv3" to="HBoxContainer/VBoxContainer/MenuOptions/ButtonLv3" method="_on_ButtonPlay_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonReturn" to="HBoxContainer/VBoxContainer/ButtonReturn" method="_on_ButtonPlay_pressed"]
+
+[node name="Area2D3" type="Area2D" parent="Points-1png3"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png3/Area2D3"]
+shape = SubResource( 2 )
+
+[node name="Points-1png4" type="Sprite" parent="."]
+position = Vector2( 74.2682, 130 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png4"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Points-1png4"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png4/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Points-1png5" type="Sprite" parent="."]
+position = Vector2( 159.55, 130 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png5"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D2" type="Area2D" parent="Points-1png5"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level5.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png5/Area2D2"]
+shape = SubResource( 2 )
+
+[node name="Points-1png6" type="Sprite" parent="."]
+position = Vector2( 74.2682, 70 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png6"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Points-1png6"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png6/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Points-1png7" type="Sprite" parent="."]
+position = Vector2( 159.55, 70 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png7"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D2" type="Area2D" parent="Points-1png7"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png7/Area2D2"]
+shape = SubResource( 2 )
+
+[node name="Points-1png8" type="Sprite" parent="."]
+position = Vector2( 246.524, 70 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png8"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D3" type="Area2D" parent="Points-1png8"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png8/Area2D3"]
+shape = SubResource( 2 )
+
+[node name="Points-1png9" type="Sprite" parent="."]
+position = Vector2( 74.2682, 130 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png9"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Points-1png9"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png9/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Points-1png10" type="Sprite" parent="."]
+position = Vector2( 159.55, 130 )
+scale = Vector2( 3, 3 )
+z_index = 5
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png10"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D2" type="Area2D" parent="Points-1png10"]
+script = ExtResource( 5 )
+scene_file_path = "res://Scenes/Level5.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Points-1png10/Area2D2"]
+shape = SubResource( 2 )
+
+[node name="TextPlay" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 128.0
+margin_top = 160.5
+margin_right = 192.0
+margin_bottom = 179.5
+custom_fonts/font = ExtResource( 1 )
+text = "Return"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectLevel" type="Label" parent="."]
+margin_left = 106.0
+margin_top = 20.0
+margin_right = 214.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 1 )
+text = "Select Level"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="input_event" from="Points-1png/Area2D" to="Points-1png/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png2/Area2D2" to="Points-1png2/Area2D2" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png3/Area2D3" to="Points-1png3/Area2D3" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png4/Area2D" to="Points-1png4/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png5/Area2D2" to="Points-1png5/Area2D2" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png6/Area2D" to="Points-1png6/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png7/Area2D2" to="Points-1png7/Area2D2" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png8/Area2D3" to="Points-1png8/Area2D3" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png9/Area2D" to="Points-1png9/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Points-1png10/Area2D2" to="Points-1png10/Area2D2" method="_on_Area2D_input_event"]
