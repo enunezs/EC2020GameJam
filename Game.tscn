@@ -154,7 +154,3 @@ align = 1
 [node name="Background_02" type="Sprite" parent="."]
 position = Vector2( 160.01, 100.031 )
 texture = ExtResource( 7 )
-
-[node name="Background2" type="Sprite" parent="."]
-position = Vector2( 504.378, 65.19 )
-texture = ExtResource( 8 )
