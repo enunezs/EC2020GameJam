@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Cards/CardBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainGame.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI.gd" type="Script" id=5]
 [ext_resource path="res://Image.bmp" type="Texture" id=6]
 [ext_resource path="res://Background_01-1.png.png" type="Texture" id=7]
+[ext_resource path="res://Background.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 7
@@ -27,6 +28,11 @@ position = Vector2( 159.248, 98.7973 )
 scale = Vector2( 0.204241, 0.204241 )
 texture = ExtResource( 6 )
 
+[node name="Background" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160.004, 100.18 )
+texture = ExtResource( 8 )
+
 [node name="Background_01-1png" type="Sprite" parent="."]
 visible = false
 position = Vector2( 160, 100 )
@@ -43,22 +49,22 @@ script = ExtResource( 3 )
 [node name="Counter" type="Node2D" parent="."]
 
 [node name="PlayerCards" type="Node2D" parent="."]
-position = Vector2( 179.223, 169.34 )
+position = Vector2( 168.067, 164.67 )
 
 [node name="PlayerActiveCard" type="Node2D" parent="."]
-position = Vector2( 192.929, 96.4645 )
+position = Vector2( 192.755, 98.5668 )
 
 [node name="CPUCards" type="Node2D" parent="."]
-position = Vector2( 177.694, 29.601 )
+position = Vector2( 166.991, 33.7632 )
 
 [node name="CPUCards2" type="Node2D" parent="."]
-position = Vector2( 177.694, 29.601 )
+position = Vector2( 179.478, 32.7508 )
 
 [node name="CPUActiveCard" type="Node2D" parent="."]
-position = Vector2( 128.132, 95.0503 )
+position = Vector2( 129.988, 98.5458 )
 
 [node name="StartCards" type="Node2D" parent="."]
-position = Vector2( 160, 100 )
+position = Vector2( 160.42, 98.5346 )
 
 [node name="DiscardCards" type="Node2D" parent="."]
 position = Vector2( 267.778, 100.354 )
