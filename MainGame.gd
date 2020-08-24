@@ -38,6 +38,8 @@ var cpu_card
 var player_card
 var is_playing =false
 
+var can_peak =false
+
 var cpu_score = 0
 var player_score = 0
 
@@ -118,6 +120,7 @@ func game_setup():
 	print("Setup done")
 
 	CPU_pick()
+	can_peak =true
 
 
 
@@ -188,6 +191,8 @@ func play_game():
 	#Wait for user input, compare cards, update scores, CPU pick, repeat
 	
 func game_over():
+	
+	#Tell the manager
 	pass
 
 
@@ -212,6 +217,23 @@ func Player_pick(card):
 	card.move_to(n_player_active_card.position)
 	play_game()
 
+func peak():
+	if not is_playing or not cpu_card or not can_peak:
+		return
+
+	cpu_card.face_up()
+	can_peak =false
+	
+	pass
+
+
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
+		and event.button_index == BUTTON_LEFT \
+		and event.is_pressed():
+			peak()
+	pass # Replace with function body.
 
 
 func card_click(card):
