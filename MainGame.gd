@@ -69,14 +69,14 @@ func game_setup():
 	#Build deck from intial settings and show at center
 	generate_deck(deck_rock, deck_paper, deck_scissors)
 	#yield(set_deck_position(main_deck,n_start_cards),"completed")
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(0.7), "timeout")
 
 
 	#TODO: Appear from out of screen FACEDOWN
 
 	#Display the deck
 	yield(display_deck(),"completed")
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 
 	#TODO: Update counter!
 	n_ui_canvas.update_counter(count_cards())
@@ -119,12 +119,6 @@ func game_setup():
 
 	CPU_pick()
 
-#runs start animations and setup
-
-func start_anim():
-	pass
-	
-
 
 
 
@@ -143,7 +137,7 @@ func play_game():
 	else:
 		#Fight
 		cpu_card.face_up()
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(0.5), "timeout")
 
 
 		var result = battle_cards(player_card, cpu_card)
