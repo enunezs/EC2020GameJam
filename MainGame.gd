@@ -372,7 +372,6 @@ func arrange_cards():
 	#n_player_cards
 
 
-	var length = (len(player_deck)-1)*(spacing+card_length)
 	var length = (len(player_deck)-1)*(card_spacing+card_length)
 	var start = n_player_cards.position
 	start.x = start.x - length/2
@@ -380,12 +379,10 @@ func arrange_cards():
 
 	#player deck on bottom
 	for n_card in len(player_deck):
-		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
 		var pos = Vector2(start.x + n_card*(card_length+card_spacing), start.y)
 		yield(get_tree().create_timer(0.1), "timeout")
 		player_deck[n_card].move_to(pos)
 
-	length = (len(cpu_deck)-1)*(spacing+card_length)
 	length = (len(cpu_deck)-1)*(card_spacing+card_length)
 	start = n_cpu_cards.position
 	start.x = start.x - length/2
@@ -393,7 +390,6 @@ func arrange_cards():
 	#rival deck on top
 	#yield(get_tree().create_timer(1.0), "timeout")
 	for n_card in len(cpu_deck):
-		var pos = Vector2(start.x + n_card*(card_length+spacing), start.y)
 		var pos = Vector2(start.x + n_card*(card_length+card_spacing), start.y)
 		yield(get_tree().create_timer(0.1), "timeout")
 		cpu_deck[n_card].move_to(pos)
