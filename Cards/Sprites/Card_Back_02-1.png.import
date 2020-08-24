@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card_Back_02-1.png.png-e96e5d179e34e7392526b636986b5e52.stex"
+path="res://.import/Card_Back_02-1.png-75438d97ce9d19280550fbbb5f12503e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/Card_Back_02-1.png.png"
-dest_files=[ "res://.import/Card_Back_02-1.png.png-e96e5d179e34e7392526b636986b5e52.stex" ]
+source_file="res://Cards/Sprites/Card_Back_02-1.png"
+dest_files=[ "res://.import/Card_Back_02-1.png-75438d97ce9d19280550fbbb5f12503e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

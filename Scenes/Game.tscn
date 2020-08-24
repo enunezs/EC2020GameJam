@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cards/CardBase.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Background/Blanket_01-1.png" type="Texture" id=10]
 [ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Scenes/PeakButton.gd" type="Script" id=12]
+[ext_resource path="res://Characters/Portrait_kid.png" type="Texture" id=13]
+[ext_resource path="res://Characters/Portrait_grandma.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -19,6 +21,65 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 47.3345, 28.3815 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "Sad",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "Happy",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 14 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "Talk",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 9 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
+} ]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -209,4 +270,18 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KidSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 29.7275, 170.206 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 6 )
+animation = "Idle"
+
+[node name="GrannySprite" type="AnimatedSprite" parent="."]
+position = Vector2( 289.733, 29.7292 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 10 )
+animation = "Idle"
+frame = 4
+playing = true
 [connection signal="input_event" from="UI/PeakButton" to="UI/PeakButton" method="_on_Area2D_input_event"]
