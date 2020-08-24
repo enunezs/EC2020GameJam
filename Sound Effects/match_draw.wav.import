@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Draw_match.wav-38da29787d6f4e2ab337ad3ee4b3fd66.sample"
+path="res://.import/match_draw.wav-59a1fee03109500be81713d3b2d091e4.sample"
 
 [deps]
 
-source_file="res://Sound Effects/Draw_match.wav"
-dest_files=[ "res://.import/Draw_match.wav-38da29787d6f4e2ab337ad3ee4b3fd66.sample" ]
+source_file="res://Sound Effects/match_draw.wav"
+dest_files=[ "res://.import/match_draw.wav-59a1fee03109500be81713d3b2d091e4.sample" ]
 
 [params]
 

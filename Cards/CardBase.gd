@@ -24,6 +24,9 @@ var clickable = false
 #sound 
 export(String, FILE) var sound_slide
 
+onready var n_audio_slide = $AudioStreamCardSlide
+onready var n_audio_turn = $AudioStreamCardTurn
+onready var n_audio_pick = $AudioStreamCardPick
 
 
 onready var n_sprite = $Sprite
@@ -77,6 +80,8 @@ func move_to(target):
 	tween.interpolate_property(self, "position", position, target, 1.3, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 	
 	tween.start()
+	#n_audio_slide.play(0)
+
 	
 	yield(tween, "tween_completed")
 	#position=target
@@ -85,6 +90,8 @@ func float_to(target):
 	#var tween = get_node("Tween")
 	#tween.interpolate_property(self, "position", position, target, 2, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 	$AnimationPlayer.play("FloatUp")
+	n_audio_pick.play(0)
+
 	yield( get_node("AnimationPlayer"), "animation_finished" )
 	
 	
@@ -121,7 +128,8 @@ func flip_texture():
 		set_cardtype(card_type)
 	else:
 		n_sprite.set_texture(back_texture)		
-	pass
+	n_audio_turn.play(0)
+
 
 #TODO ON HOVER
 

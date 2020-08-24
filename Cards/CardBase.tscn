@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Cards/Sprites/Card_Rock-1.png" type="Texture" id=1]
 [ext_resource path="res://Cards/CardBase.gd" type="Script" id=2]
 [ext_resource path="res://Cards/Sprites/Card_Paper-1.png" type="Texture" id=3]
 [ext_resource path="res://Cards/Sprites/Card_Back_01-1.png" type="Texture" id=4]
 [ext_resource path="res://Cards/Sprites/Card_Scissors-1.png" type="Texture" id=5]
+[ext_resource path="res://Sound Effects/card_slide.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sound Effects/card_turn.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound Effects/Click.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21, 31 )
@@ -144,5 +147,17 @@ anims/Flip = SubResource( 2 )
 anims/FloatDown = SubResource( 3 )
 anims/FloatUp = SubResource( 4 )
 anims/Idle = SubResource( 5 )
+
+[node name="AudioStreamCardSlide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -11.4
+
+[node name="AudioStreamCardPick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+
+[node name="AudioStreamCardTurn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
 [connection signal="mouse_entered" from="." to="." method="_on_CardBase_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_CardBase_mouse_exited"]

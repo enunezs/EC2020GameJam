@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Board.gd" type="Script" id=1]
 [ext_resource path="res://MainGame.gd" type="Script" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://UI/ICON HAND-1.png.png" type="Texture" id=6]
 [ext_resource path="res://UI/ICON SCISSORS-1.png.png" type="Texture" id=7]
 [ext_resource path="res://UI/ICON PUNCH-1.png.png" type="Texture" id=8]
-[ext_resource path="res://Background/Background_02.png" type="Texture" id=9]
-[ext_resource path="res://Background/Blanket_01-1.png" type="Texture" id=10]
+[ext_resource path="res://Background/Background.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -183,16 +182,3 @@ position = Vector2( 160, 100 )
 z_index = -3
 z_as_relative = false
 texture = ExtResource( 9 )
-
-[node name="Napkin" type="Sprite" parent="UI"]
-position = Vector2( 40, 100 )
-scale = Vector2( 1.08, 1.08 )
-z_index = -3
-texture = ExtResource( 10 )
-
-[node name="Napkin2" type="Sprite" parent="UI"]
-position = Vector2( 280, 100 )
-rotation = 3.14159
-scale = Vector2( 1.08, 1.08 )
-z_index = -3
-texture = ExtResource( 10 )
