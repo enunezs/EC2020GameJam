@@ -43,6 +43,9 @@ var can_peak =false
 var cpu_score = 0
 var player_score = 0
 
+export var card_spacing = 8
+export var card_length = 32
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -367,8 +370,7 @@ func arrange_cards():
 
 #arrange along a line centered at node player_cards
 	#n_player_cards
-	var spacing = 8
-	var card_length = 48
+
 
 	var length = (len(player_deck)-1)*(spacing+card_length)
 	var start = n_player_cards.position
