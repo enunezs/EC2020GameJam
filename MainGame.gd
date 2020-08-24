@@ -121,8 +121,8 @@ func game_setup():
 
 	CPU_pick()
 	can_peak =true
-
-
+	$UI/PeakButton._ready()
+	
 
 
 func play_game():
@@ -218,22 +218,14 @@ func Player_pick(card):
 	play_game()
 
 func peak():
-	if not is_playing or not cpu_card or not can_peak:
-		return
-
+	if not is_playing or not cpu_card:
+		return true
+	elif not can_peak:
+		return false
 	cpu_card.face_up()
 	can_peak =false
 	
 	pass
-
-
-
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton \
-		and event.button_index == BUTTON_LEFT \
-		and event.is_pressed():
-			peak()
-	pass # Replace with function body.
 
 
 func card_click(card):
