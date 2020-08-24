@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cards/CardBase.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/PeakButton.gd" type="Script" id=12]
 [ext_resource path="res://Characters/Portrait_kid.png" type="Texture" id=13]
 [ext_resource path="res://Characters/Portrait_grandma.png" type="Texture" id=14]
+[ext_resource path="res://Background/Points-1.png.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -120,6 +121,7 @@ layer = -1
 script = ExtResource( 3 )
 
 [node name="ScoreBox" type="MarginContainer" parent="UI"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -271,17 +273,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="KidSprite" type="AnimatedSprite" parent="."]
+[node name="KidSprite" type="AnimatedSprite" parent="UI"]
 position = Vector2( 29.7275, 170.206 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 6 )
 animation = "Idle"
 
-[node name="GrannySprite" type="AnimatedSprite" parent="."]
+[node name="ScoreFrame" type="Sprite" parent="UI/KidSprite"]
+position = Vector2( 21.1817, -10.4704 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 15 )
+
+[node name="Score" type="Label" parent="UI/KidSprite/ScoreFrame"]
+margin_left = -8.0
+margin_top = -7.0
+margin_right = 8.20837
+margin_bottom = 8.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "12"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrannySprite" type="AnimatedSprite" parent="UI"]
 position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 10 )
 animation = "Idle"
-frame = 4
+frame = 6
 playing = true
+flip_h = true
+
+[node name="ScoreFrame" type="Sprite" parent="UI/GrannySprite"]
+position = Vector2( -21.3495, 10.7834 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 15 )
+
+[node name="Score" type="Label" parent="UI/GrannySprite/ScoreFrame"]
+margin_left = -8.0
+margin_top = -7.0
+margin_right = 8.0
+margin_bottom = 8.0
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "12"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="input_event" from="UI/PeakButton" to="UI/PeakButton" method="_on_Area2D_input_event"]
