@@ -101,13 +101,13 @@ script = ExtResource( 4 )
 [node name="Counter" type="Node2D" parent="."]
 
 [node name="PlayerCards" type="Node2D" parent="."]
-position = Vector2( 160, 170 )
+position = Vector2( 188.288, 165.984 )
 
 [node name="PlayerActiveCard" type="Node2D" parent="."]
 position = Vector2( 200, 100 )
 
 [node name="CPUCards" type="Node2D" parent="."]
-position = Vector2( 160, 30 )
+position = Vector2( 131.986, 34.0345 )
 
 [node name="CPUActiveCard" type="Node2D" parent="."]
 position = Vector2( 120, 100 )
