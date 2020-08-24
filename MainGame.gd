@@ -63,6 +63,7 @@ export(String, FILE) onready var next_scene
 
 func _ready():
 	$MessageBox/VBoxContainer/Message.text = start_message
+	$AudioStreamPlayer.play(0)
 
 func ready():
 	
