@@ -23,6 +23,14 @@ func update_score(player_score, cpu_score):
 	n_score_text_player.text = str(player_score)
 	n_score_text_cpu.text = str(cpu_score)
 
+	if (player_score>cpu_score):
+		$KidSprite.play("Happy")
+	elif (player_score<cpu_score):
+		$KidSprite.play("Sad")
+	else:
+		$KidSprite.play("Idle")
+
+
 func clear_score():
 	n_score_text.text = ""
 	n_score_text_player.text = ""
