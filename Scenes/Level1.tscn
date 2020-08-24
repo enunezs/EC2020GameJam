@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Cards/CardBase.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Background/Points-1.png.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Signs/GameOverSign.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Signs/YouWinSign.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sound Effects/GCGAMEJAM 2020 MUSIC.wav" type="AudioStream" id=18]
 [ext_resource path="res://UI/Dialogue box.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/ButtonHide.gd" type="Script" id=20]
 [ext_resource path="res://UI/DIALOGUE BOX ARROW-1.png.png" type="Texture" id=21]
@@ -315,6 +316,7 @@ position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 11 )
 animation = "Idle"
+frame = 7
 playing = true
 flip_h = true
 
@@ -401,6 +403,9 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="MessageBox"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
 [connection signal="input_event" from="UI/PeakButton" to="UI/PeakButton" method="_on_Area2D_input_event"]
 [connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="." method="ready"]
 [connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="MessageBox" method="hide"]
