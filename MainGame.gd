@@ -51,6 +51,11 @@ export var card_length = 32
 export(String, MULTILINE) var start_message
 export(String, MULTILINE) var ending_message
 
+export(Resource) var win_message
+export(Resource) var lose_message
+export(Resource) var basic_message
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -201,6 +206,22 @@ func play_game():
 	
 func game_over():
 	
+	#instance message
+	if cpu_score > player_score:
+		#LOSE
+		var current_instance = lose_message.instance()
+		add_child(current_instance)
+		current_instance.show()
+		
+	elif cpu_score < player_score:
+		#WIN
+		var current_instance = win_message.instance()
+		add_child(current_instance)
+		current_instance.show()
+	else:
+		#DRAW\
+		pass
+		#get_tree().reload_current_scene()
 	#Tell the manager
 	pass
 

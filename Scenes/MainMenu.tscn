@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Cards/Sprites/Card_01-1.png" type="Texture" id=1]
 [ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=2]
@@ -12,23 +12,16 @@
 [ext_resource path="res://Cards/Sprites/Card_Play-1.png.png" type="Texture" id=10]
 [ext_resource path="res://Cards/Sprites/Card_Select-1.png.png" type="Texture" id=11]
 [ext_resource path="res://Cards/Sprites/Card_Made by-1.png.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/GotoScene.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
 font_data = ExtResource( 3 )
 
-[node name="MarginContainer" type="MarginContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -0.8909
-margin_right = -0.8909
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.9928, 31.9913 )
+
+[node name="MarginContainer" type="Node2D"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 visible = false
@@ -179,11 +172,26 @@ rotation = 0.112938
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 11 )
 
+[node name="Area2D" type="Area2D" parent="Card_Select-1png"]
+script = ExtResource( 13 )
+scene_file_path = "res://Scenes/LevelSelect.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card_Select-1png/Area2D"]
+shape = SubResource( 2 )
+
 [node name="Card_Play-1png" type="Sprite" parent="."]
 position = Vector2( 68.5423, 131.878 )
 rotation = -0.165084
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 10 )
+
+[node name="Area2D2" type="Area2D" parent="Card_Play-1png"]
+scale = Vector2( 1, 1 )
+script = ExtResource( 13 )
+scene_file_path = "res://Scenes/Game.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Card_Play-1png/Area2D2"]
+shape = SubResource( 2 )
 
 [node name="Card_Back_02-1" type="Sprite" parent="."]
 position = Vector2( 107.469, 58.0614 )
@@ -192,3 +200,5 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 9 )
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/ButtonPlay" to="HBoxContainer/VBoxContainer/MenuOptions/ButtonPlay" method="_on_ButtonPlay_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/SelectPlay" to="HBoxContainer/VBoxContainer/MenuOptions/SelectPlay" method="_on_ButtonPlay_pressed"]
+[connection signal="input_event" from="Card_Select-1png/Area2D" to="Card_Select-1png/Area2D" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Card_Play-1png/Area2D2" to="Card_Play-1png/Area2D2" method="_on_Area2D_input_event"]

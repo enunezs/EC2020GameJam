@@ -14,6 +14,7 @@ extra_spacing_space = -1
 font_data = ExtResource( 4 )
 
 [node name="MessageBox" type="Node2D"]
+z_index = 20
 script = ExtResource( 6 )
 message = "Sorry son! 
 Game is over!"
@@ -39,7 +40,7 @@ __meta__ = {
 
 [node name="Message" type="Label" parent="VBoxContainer"]
 margin_right = 140.0
-margin_bottom = 63.0
+margin_bottom = 61.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "Sorry son! 
@@ -50,9 +51,9 @@ autowrap = true
 max_lines_visible = 7
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_top = 67.0
+margin_top = 65.0
 margin_right = 140.0
-margin_bottom = 87.0
+margin_bottom = 85.0
 flat = true
 expand_icon = true
 script = ExtResource( 3 )
