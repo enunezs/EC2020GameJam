@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GCGAMEJAM 2020 MUSIC.wav-7a6a48be3e77ac463ef020cf2427ebee.sample"
+
+[deps]
+
+source_file="res://Sound Effects/GCGAMEJAM 2020 MUSIC.wav"
+dest_files=[ "res://.import/GCGAMEJAM 2020 MUSIC.wav-7a6a48be3e77ac463ef020cf2427ebee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
