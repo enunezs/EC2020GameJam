@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card_Paper-1.png.png-7491d7745db58ef58090088856c90414.stex"
+path="res://.import/Card_01-1.png-a6b588c35ac46e14a36d68764ce57ee4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/Card_Paper-1.png.png"
-dest_files=[ "res://.import/Card_Paper-1.png.png-7491d7745db58ef58090088856c90414.stex" ]
+source_file="res://Cards/Sprites/Card_01-1.png"
+dest_files=[ "res://.import/Card_01-1.png-a6b588c35ac46e14a36d68764ce57ee4.stex" ]
 
 [params]
 
