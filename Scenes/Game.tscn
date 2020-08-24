@@ -24,70 +24,70 @@
 [ext_resource path="res://Font/DialogueFont.tres" type="DynamicFont" id=22]
 [ext_resource path="res://Scenes/Signs/MessageBox.gd" type="Script" id=23]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=9]
 size = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 47.3345, 28.3815 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 13 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 13 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 12 ) ],
 "loop": true,
 "name": "Happy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 13 ) ],
 "loop": true,
 "name": "Sad",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 14 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 14 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 14 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 14 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
+"frames": [ SubResource( 15 ), SubResource( 15 ), SubResource( 15 ), SubResource( 16 ), SubResource( 15 ), SubResource( 15 ), SubResource( 15 ), SubResource( 15 ), SubResource( 15 ), SubResource( 15 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
+}, {
 "frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "Talk",
 "speed": 8.0
-}, {
-"frames": [ SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 10 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ), SubResource( 9 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
 } ]
 
 [node name="Game" type="Node2D"]
@@ -157,7 +157,7 @@ alignment = 1
 margin_right = 48.0
 margin_bottom = 14.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "10000000"
 align = 1
 
@@ -200,7 +200,7 @@ margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 14.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "x3"
 valign = 1
 
@@ -220,7 +220,7 @@ margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 14.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "x2"
 valign = 1
 
@@ -240,7 +240,7 @@ margin_left = 4.0
 margin_right = 16.0
 margin_bottom = 14.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "x4"
 valign = 1
 
@@ -262,7 +262,7 @@ scale = Vector2( 1.08, 1.08 )
 script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/PeakButton"]
-shape = SubResource( 2 )
+shape = SubResource( 10 )
 
 [node name="Napkin" type="Sprite" parent="UI/PeakButton"]
 rotation = 3.14159
@@ -286,7 +286,7 @@ __meta__ = {
 [node name="KidSprite" type="AnimatedSprite" parent="UI"]
 position = Vector2( 29.7275, 170.206 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 6 )
+frames = SubResource( 14 )
 animation = "Idle"
 
 [node name="ScoreFrame" type="Sprite" parent="UI/KidSprite"]
@@ -300,7 +300,7 @@ margin_top = -7.0
 margin_right = 8.20837
 margin_bottom = 8.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "12"
 align = 1
 valign = 1
@@ -311,9 +311,9 @@ __meta__ = {
 [node name="GrannySprite" type="AnimatedSprite" parent="UI"]
 position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 11 )
+frames = SubResource( 17 )
 animation = "Idle"
-frame = 5
+frame = 7
 playing = true
 flip_h = true
 
@@ -328,7 +328,7 @@ margin_top = -7.0
 margin_right = 8.0
 margin_bottom = 8.0
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 9 )
 text = "12"
 align = 1
 valign = 1
