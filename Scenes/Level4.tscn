@@ -95,6 +95,9 @@ basic_card = ExtResource( 2 )
 deck_rock = 5
 deck_paper = 2
 deck_scissors = 3
+start_message = "You should try playing this with your friends next time! 
+Remember, you don't always have to win.
+"
 win_message = ExtResource( 17 )
 lose_message = ExtResource( 16 )
 next_scene = "res://Scenes/LevelSelect.tscn"
@@ -313,7 +316,7 @@ position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 11 )
 animation = "Idle"
-frame = 7
+frame = 4
 playing = true
 flip_h = true
 

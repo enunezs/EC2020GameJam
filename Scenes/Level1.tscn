@@ -92,9 +92,11 @@ animations = [ {
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 basic_card = ExtResource( 2 )
-deck_rock = 5
+deck_rock = 2
 deck_paper = 2
-deck_scissors = 3
+deck_scissors = 2
+start_message = "This used to be my favorite game.
+You remember how to play, don’t you dear?"
 win_message = ExtResource( 17 )
 lose_message = ExtResource( 16 )
 next_scene = "res://Scenes/LevelSelect.tscn"
@@ -313,7 +315,6 @@ position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 11 )
 animation = "Idle"
-frame = 7
 playing = true
 flip_h = true
 

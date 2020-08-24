@@ -92,9 +92,12 @@ animations = [ {
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 basic_card = ExtResource( 2 )
-deck_rock = 5
-deck_paper = 2
-deck_scissors = 3
+deck_rock = 3
+deck_paper = 3
+deck_scissors = 4
+start_message = "Have you been resting well?
+I'll let you sneak a peek just this time.
+"
 win_message = ExtResource( 17 )
 lose_message = ExtResource( 16 )
 next_scene = "res://Scenes/LevelSelect.tscn"
@@ -313,7 +316,7 @@ position = Vector2( 289.733, 29.7292 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 11 )
 animation = "Idle"
-frame = 7
+frame = 4
 playing = true
 flip_h = true
 
@@ -401,5 +404,5 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="MessageBox"]
 [connection signal="input_event" from="UI/PeakButton" to="UI/PeakButton" method="_on_Area2D_input_event"]
-[connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="." method="ready"]
 [connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="MessageBox" method="hide"]
+[connection signal="pressed" from="MessageBox/VBoxContainer/Button" to="." method="ready"]
