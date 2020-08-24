@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UI/ButtonLoadScene.gd" type="Script" id=2]
+[ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Background/Points-1.png.png" type="Texture" id=4]
 
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
@@ -140,6 +145,60 @@ margin_bottom = 9.5
 custom_fonts/font = ExtResource( 1 )
 text = "Return"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points-1png" type="Sprite" parent="."]
+position = Vector2( 74.2682, 101.646 )
+scale = Vector2( 3.8, 3.8 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points-1png2" type="Sprite" parent="."]
+position = Vector2( 159.55, 101.646 )
+scale = Vector2( 3.8, 3.8 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png2"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points-1png3" type="Sprite" parent="."]
+position = Vector2( 246.524, 101.646 )
+scale = Vector2( 3.8, 3.8 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Points-1png3"]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 1 )
+text = "3"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
