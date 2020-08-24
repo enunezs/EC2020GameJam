@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Points-1.png.png-934428e2bbc47b8ca6e74dbc66afc037.stex"
+path="res://.import/Card_Back_02-1.png-75438d97ce9d19280550fbbb5f12503e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/Points-1.png.png"
-dest_files=[ "res://.import/Points-1.png.png-934428e2bbc47b8ca6e74dbc66afc037.stex" ]
+source_file="res://Cards/Sprites/Card_Back_02-1.png"
+dest_files=[ "res://.import/Card_Back_02-1.png-75438d97ce9d19280550fbbb5f12503e.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/WinMatch.wav-b6290159d5e500be53436df8f78d20ed.sample"
+path="res://.import/card_slide.wav-78f698172a3af6a49a594c31eb6abbec.sample"
 
 [deps]
 
-source_file="res://Sound Effects/WinMatch.wav"
-dest_files=[ "res://.import/WinMatch.wav-b6290159d5e500be53436df8f78d20ed.sample" ]
+source_file="res://Sound Effects/card_slide.wav"
+dest_files=[ "res://.import/card_slide.wav-78f698172a3af6a49a594c31eb6abbec.sample" ]
 
 [params]
 

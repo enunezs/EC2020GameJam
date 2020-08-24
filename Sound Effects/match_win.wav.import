@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Turn_card.wav-6a90fff6bbb134991b29f8a27019cfa0.sample"
+path="res://.import/match_win.wav-44adef6e6de02b877dfbde35e16879d1.sample"
 
 [deps]
 
-source_file="res://Sound Effects/Turn_card.wav"
-dest_files=[ "res://.import/Turn_card.wav-6a90fff6bbb134991b29f8a27019cfa0.sample" ]
+source_file="res://Sound Effects/match_win.wav"
+dest_files=[ "res://.import/match_win.wav-44adef6e6de02b877dfbde35e16879d1.sample" ]
 
 [params]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/encounter_lost.wav-bab65c70d8bc8f5d25ec6f10b2860b21.sample"
+
+[deps]
+
+source_file="res://Sound Effects/encounter_lost.wav"
+dest_files=[ "res://.import/encounter_lost.wav-bab65c70d8bc8f5d25ec6f10b2860b21.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
