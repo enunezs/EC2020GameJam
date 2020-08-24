@@ -3,6 +3,7 @@ extends Node2D
 export(String, MULTILINE) var message
 export (Vector2) var hide_pos = Vector2(340,0)
 
+export(String, FILE) onready var scene_file_path
 
 func _ready():
 	$VBoxContainer/Button.disabled = true
@@ -22,7 +23,9 @@ func hide():
 	
 	yield(tween, "tween_completed")
 	visible = false
-	pass
+	
+	if scene_file_path :
+		switch_scene()
 
 func show():
 	$VBoxContainer/Button.disabled = false
@@ -34,3 +37,12 @@ func show():
 
 	yield(tween, "tween_completed")
 	pass	
+
+
+
+
+
+func switch_scene():
+	print("Switching to scene ")
+	print(scene_file_path)
+	get_tree().change_scene(scene_file_path)

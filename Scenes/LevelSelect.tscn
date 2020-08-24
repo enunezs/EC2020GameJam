@@ -55,6 +55,7 @@ size_flags_vertical = 3
 columns = 3
 
 [node name="ButtonLv1" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+visible = false
 margin_right = 33.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -78,8 +79,8 @@ __meta__ = {
 }
 
 [node name="ButtonLv2" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-margin_left = 37.0
-margin_right = 70.0
+visible = false
+margin_right = 33.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 flat = true
@@ -102,8 +103,8 @@ __meta__ = {
 }
 
 [node name="ButtonLv3" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
-margin_left = 74.0
-margin_right = 107.0
+visible = false
+margin_right = 33.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 flat = true
@@ -151,7 +152,7 @@ __meta__ = {
 
 [node name="Points-1png" type="Sprite" parent="."]
 position = Vector2( 74.2682, 101.646 )
-scale = Vector2( 3.8, 3.8 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png"]
@@ -169,7 +170,7 @@ __meta__ = {
 
 [node name="Points-1png2" type="Sprite" parent="."]
 position = Vector2( 159.55, 101.646 )
-scale = Vector2( 3.8, 3.8 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png2"]
@@ -187,7 +188,7 @@ __meta__ = {
 
 [node name="Points-1png3" type="Sprite" parent="."]
 position = Vector2( 246.524, 101.646 )
-scale = Vector2( 3.8, 3.8 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Points-1png3"]

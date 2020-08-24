@@ -53,25 +53,28 @@ export(String, MULTILINE) var ending_message
 
 export(Resource) var win_message
 export(Resource) var lose_message
-export(Resource) var basic_message
+export(Resource) var base_message
 
+
+export(String, FILE) onready var next_scene
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func ready():
 	
 	#General setup, maybe move later
 	randomize()
 	basic_card = load("res://Cards/CardBase.tscn")
 
 	#Start new game
-	#game_setup()
-	
 	game_setup()
-
+	
+	#game_setup()
+	play_game()
 	#yield(get_tree().create_timer(2.0), "timeout")
 
-	play_game()
+	
+	#show_start_message()
 	
 ###########################
 ### CORE GAME FUNCTIONS ###
@@ -186,7 +189,11 @@ func play_game():
 		
 		
 
-		pass
+		if len(cpu_deck)>0:
+			CPU_pick()
+		else:
+			game_over()
+		
 
 	#Start the game proper
 	is_playing = true
@@ -194,16 +201,20 @@ func play_game():
 	#First CPU pick
 	#CPU picks card (and moves to center)
 
-	if len(cpu_deck)>0:
-		CPU_pick()
-	else:
-		game_over()
-		pass
+	
 
 
 	#From this point on, the whole system is event driven
 	#Wait for user input, compare cards, update scores, CPU pick, repeat
 	
+func show_start_message():
+	
+	var current_instance = base_message.instance()
+	add_child(current_instance)
+	#current_instance.connect( ,self,game_setup())
+	current_instance.message = start_message
+	current_instance.show()
+
 func game_over():
 	
 	#instance message
@@ -218,10 +229,11 @@ func game_over():
 		var current_instance = win_message.instance()
 		add_child(current_instance)
 		current_instance.show()
+		current_instance.scene_file_path = next_scene
 	else:
-		#DRAW\
-		pass
-		#get_tree().reload_current_scene()
+		#DRAW
+		
+		get_tree().reload_current_scene()
 	#Tell the manager
 	pass
 

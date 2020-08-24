@@ -13,11 +13,12 @@ extra_spacing_top = -4
 extra_spacing_space = -1
 font_data = ExtResource( 4 )
 
-[node name="MessageBox" type="Node2D"]
+[node name="GameOverSign" type="Node2D"]
 z_index = 20
 script = ExtResource( 6 )
 message = "Sorry son! 
 Game is over!"
+scene_file_path = "res://Scenes/MainMenu.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 244, 58.053 )
