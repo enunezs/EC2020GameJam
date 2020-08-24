@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/DIALOGUE BOX ARROW-1.png.png" type="Texture" id=1]
+[ext_resource path="res://Font/BaseFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/ButtonHide.gd" type="Script" id=3]
+[ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://UI/Dialogue box.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Signs/MessageBox.gd" type="Script" id=6]
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+extra_spacing_top = -4
+extra_spacing_space = -1
+font_data = ExtResource( 4 )
+
+[node name="MessageBox" type="Node2D"]
+script = ExtResource( 6 )
+message = "Sorry son! 
+Game is over!"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 244, 58.053 )
+texture = ExtResource( 1 )
+
+[node name="MessageBG" type="Sprite" parent="."]
+position = Vector2( 160, 100 )
+texture = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 90.0
+margin_top = 60.0
+margin_right = 230.0
+margin_bottom = 145.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 63.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Congrats!"
+align = 1
+valign = 1
+autowrap = true
+max_lines_visible = 7
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 67.0
+margin_right = 140.0
+margin_bottom = 87.0
+flat = true
+expand_icon = true
+script = ExtResource( 3 )
+
+[node name="LabelNext" type="Label" parent="VBoxContainer/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -60.0
+margin_top = -10.0
+margin_right = 60.0
+margin_bottom = 10.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Next"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="hide"]

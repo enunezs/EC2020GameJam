@@ -46,6 +46,12 @@ var player_score = 0
 export var card_spacing = 8
 export var card_length = 32
 
+# messages
+
+export(String, MULTILINE) var start_message
+export(String, MULTILINE) var ending_message
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
