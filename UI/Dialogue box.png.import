@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card_Rock-1.png.png-a94e4b66a98dac516f5230b53cc81977.stex"
+path="res://.import/Dialogue box.png-688dd363b0ed7d2782bb5d7d8a3283a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/Card_Rock-1.png.png"
-dest_files=[ "res://.import/Card_Rock-1.png.png-a94e4b66a98dac516f5230b53cc81977.stex" ]
+source_file="res://UI/Dialogue box.png"
+dest_files=[ "res://.import/Dialogue box.png-688dd363b0ed7d2782bb5d7d8a3283a6.stex" ]
 
 [params]
 

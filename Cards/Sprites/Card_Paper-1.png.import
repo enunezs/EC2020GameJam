@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ICON SCISSORS-1.png.png-4dd5534a925488f5f681c0a3edff8648.stex"
+path="res://.import/Card_Paper-1.png-683a9019b7c644e378ca3ab86ec43e8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/ICON SCISSORS-1.png.png"
-dest_files=[ "res://.import/ICON SCISSORS-1.png.png-4dd5534a925488f5f681c0a3edff8648.stex" ]
+source_file="res://Cards/Sprites/Card_Paper-1.png"
+dest_files=[ "res://.import/Card_Paper-1.png-683a9019b7c644e378ca3ab86ec43e8f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

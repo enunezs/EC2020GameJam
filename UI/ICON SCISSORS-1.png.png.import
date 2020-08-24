@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Card_Paper-1.png.png-7491d7745db58ef58090088856c90414.stex"
+path="res://.import/ICON SCISSORS-1.png.png-b1da5774fedff3570d4e211a4dd8abec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/Card_Paper-1.png.png"
-dest_files=[ "res://.import/Card_Paper-1.png.png-7491d7745db58ef58090088856c90414.stex" ]
+source_file="res://UI/ICON SCISSORS-1.png.png"
+dest_files=[ "res://.import/ICON SCISSORS-1.png.png-b1da5774fedff3570d4e211a4dd8abec.stex" ]
 
 [params]
 

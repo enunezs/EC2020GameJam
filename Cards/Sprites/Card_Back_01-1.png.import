@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TomReaction.jpg-f17174924bf3a888be4df378f9c53c82.stex"
+path="res://.import/Card_Back_01-1.png-9d34c66ad31bc83001c3068772098f7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/Sprites/TomReaction.jpg"
-dest_files=[ "res://.import/TomReaction.jpg-f17174924bf3a888be4df378f9c53c82.stex" ]
+source_file="res://Cards/Sprites/Card_Back_01-1.png"
+dest_files=[ "res://.import/Card_Back_01-1.png-9d34c66ad31bc83001c3068772098f7e.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

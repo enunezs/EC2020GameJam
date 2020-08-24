@@ -6,7 +6,7 @@
 [ext_resource path="res://Font/Shure Tech Mono Nerd Font Complete.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI.gd" type="Script" id=5]
 [ext_resource path="res://Image.bmp" type="Texture" id=6]
-[ext_resource path="res://Background_01-1.png.png" type="Texture" id=7]
+[ext_resource path="res://Background_02.png" type="Texture" id=7]
 [ext_resource path="res://Background.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
@@ -32,12 +32,6 @@ texture = ExtResource( 6 )
 visible = false
 position = Vector2( 160.004, 100.18 )
 texture = ExtResource( 8 )
-
-[node name="Background_01-1png" type="Sprite" parent="."]
-visible = false
-position = Vector2( 160, 100 )
-z_index = -2
-texture = ExtResource( 7 )
 
 [node name="Board" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -156,3 +150,7 @@ size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "Scissors"
 align = 1
+
+[node name="Background_02" type="Sprite" parent="."]
+position = Vector2( 160.01, 100.031 )
+texture = ExtResource( 7 )
